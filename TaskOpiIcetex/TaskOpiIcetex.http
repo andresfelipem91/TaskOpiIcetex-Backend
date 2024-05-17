@@ -1,0 +1,6 @@
+@TaskOpiIcetex_HostAddress = http://localhost:5288
+
+GET {{TaskOpiIcetex_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
