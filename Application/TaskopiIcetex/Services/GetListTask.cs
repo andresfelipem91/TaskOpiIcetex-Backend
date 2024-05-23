@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Domain.Enums;
 using Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,9 @@ namespace Application.TaskopiIcetex.Services
 
         public async Task<List<TaskOpiModel>> GetListTasks()
         {
-            return await _repository.GetListTask();
+           List<TaskOpiModel> filterTask= await _repository.GetListTask();
+            return (filterTask.OrderByDescending(filter=> filter.Priority == Priority.high).ThenBy(filter=> filter.Priority == Priority.half)).ToList();
+            
         }
     }
 }
